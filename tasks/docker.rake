@@ -9,8 +9,19 @@ namespace :docker do
   end
 
   desc "Build the default docker image"
-  task :build do
+  task :build_default do
     Docker::Manager.build_default
+  end
+
+  desc "Builds a docker image"
+  task :build, %i[version line_editor compiler] do |_t, opts|
+    manager = Docker::Manager.new(
+      version: opts[:version],
+      line_editor: opts[:line_editor],
+      compiler: opts[:compiler]
+    )
+
+    manager.build
   end
 
   desc "Build a ruby trunk image"
