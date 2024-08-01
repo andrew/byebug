@@ -10,6 +10,23 @@ on:
       - master
 
 jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.3
+          bundler-cache: true
+
+      - name: Build and push docker image
+        run: bin/rake docker:build_all
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
+
   test:
     container: deividrodriguez/byebug:${{ matrix.version }}-${{ matrix.line_editor }}-${{ matrix.compiler }}
 
