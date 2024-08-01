@@ -29,11 +29,8 @@ jobs:
           ruby-version: 3.3.3
           bundler-cache: true
 
-      - name: Build docker image
-        run: bin/rake docker:build[${{ matrix.version }},${{ matrix.line_editor }},${{ matrix.compiler }}]
-
-      - name: Push docker image
-        run: bin/rake docker:push[${{ matrix.version }},${{ matrix.line_editor }},${{ matrix.compiler }}]
+      - name: Build and push docker image
+        run: bin/rake docker:build_and_push[${{ matrix.version }},${{ matrix.line_editor }},${{ matrix.compiler }}]
         env:
           DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
 
