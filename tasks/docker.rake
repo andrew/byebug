@@ -53,7 +53,19 @@ namespace :docker do
   end
 
   desc "Push the default docker image to dockerhub"
-  task :push do
+  task :push_default do
     Docker::Manager.push_default
+  end
+
+  desc "Pushes a docker image"
+  task :push, %i[version line_editor compiler] do |_t, opts|
+    manager = Docker::Manager.new(
+      version: opts[:version],
+      line_editor: opts[:line_editor],
+      compiler: opts[:compiler]
+    )
+
+    manager.login
+    manager.push
   end
 end
