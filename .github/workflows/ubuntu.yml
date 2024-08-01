@@ -13,7 +13,7 @@ jobs:
   test:
     container: deividrodriguez/byebug:${{ matrix.version }}-${{ matrix.line_editor }}-${{ matrix.compiler }}
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: false
@@ -46,7 +46,7 @@ jobs:
   coverage:
     container: deividrodriguez/byebug:3.3.3-readline-gcc
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-24.04
 
     needs: test
 
