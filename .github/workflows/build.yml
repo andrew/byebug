@@ -1,0 +1,30 @@
+---
+
+name: build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Docker client
+        run: |
+          apk add curl
+          curl -L -o /tmp/docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-19.03.5.tgz
+          tar -xz --strip-components 1 -C /usr/bin -f /tmp/docker.tgz
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3.3
+          bundler-cache: true
+
+      - name: Build and push docker image
+        run: bin/rake docker:build_all
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
