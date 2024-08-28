@@ -20,7 +20,7 @@ jobs:
         version: [2.5.8, 2.6.6, 2.7.2, head]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions/cache@v1
         with:

@@ -24,7 +24,7 @@ jobs:
         compiler: [clang, gcc]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Run CI checks
         run: |
@@ -51,7 +51,7 @@ jobs:
     needs: test
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - uses: actions/download-artifact@v1
         with:
