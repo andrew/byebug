@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.11
 
 # skip installing gem documentation
 RUN mkdir -p /usr/local/etc \
@@ -42,6 +42,8 @@ RUN set -ex \
     $line_edit_lib \
     linux-headers \
     ncurses-dev \
+    openssl \
+    openssl-dev \
     ruby \
     yaml-dev \
   " \
