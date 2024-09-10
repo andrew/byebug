@@ -13,3 +13,5 @@ group :development do
   gem "simplecov", "0.21.2"
   gem "yard", "0.9.37"
 end
+
+gem "json", "2.7.2"
