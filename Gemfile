@@ -16,3 +16,4 @@ end
 
 gem "json", "2.7.2"
 gem "faraday-retry"
+gem "octokit", github: "https://github.com/octokit/octokit.rb/pull/1712"
