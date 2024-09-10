@@ -44,7 +44,7 @@ GEM
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
     uri (0.13.1)
-    yard (0.9.26)
+    yard (0.9.37)
 
 PLATFORMS
   ruby
@@ -59,7 +59,7 @@ DEPENDENCIES
   rake (~> 13.0)
   rake-compiler (~> 1.0)
   simplecov (= 0.21.2)
-  yard (= 0.9.26)
+  yard (= 0.9.37)
 
 BUNDLED WITH
    2.5.18
