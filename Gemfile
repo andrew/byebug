@@ -15,3 +15,4 @@ group :development do
 end
 
 gem "json", "2.7.2"
+gem "faraday-retry"
