@@ -6,7 +6,7 @@ gemspec
 
 group :development do
   gem "chandler", "0.9.0"
-  gem "minitest", "~> 5.15"
+  gem "minitest", "~> 5.25"
   gem "pry", github: "pry/pry"
   gem "rake", "~> 13.0"
   gem "rake-compiler", "~> 1.0"
